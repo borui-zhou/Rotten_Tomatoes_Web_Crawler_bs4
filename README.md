@@ -4,4 +4,4 @@ This is my first web crawler project. This project uses beautiful soup to parse 
 1. get_movie_url.py --> It scrapes all the movie url and store them in a txt file.
 2. get_movie_info.py --> The main scraper, it gets all the movie info and store them into a local Mongodb Database.
 3. movie_item.py --> Just a movie item class.
-4. word_cloud.py --> Generate a word cloud of titles, a little something fun.<br>![Description](http://Regina77.github.io/Rotten_Tomatoes_Web_Crawler_bs4/title_word_cloud.png)
+4. word_cloud.py --> Generate a word cloud of titles, a little something fun.<br>![Description](https://github.com/Regina77/Rotten_Tomatoes_Web_Crawler_bs4/title_word_cloud.png)
