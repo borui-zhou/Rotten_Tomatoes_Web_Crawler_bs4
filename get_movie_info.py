@@ -92,6 +92,7 @@ def get_movie_info(movie_url):
             # Studio
             if "Studio:" in str(movie_info_list[i]):
                 studio = str(movie_info_list[i + 1].text.strip())
+                movie_item.studio = studio
 
             # Cast name & number
             cast_info = soup.find("div", {"class": 'castSection '})
@@ -131,8 +132,23 @@ def main_scraper():
             movie_url = base_url + add_on
             get_movie_info(movie_url)
 
-main_scraper()
+# main_scraper()
 
+def draw_pie_chart(labels, values,title):
+    fig1, ax1 = plt.subplots()
+    total = [100]
+    title = plt.title(title)
+    title.set_ha("left")
+    plt.gca().axis("equal")
+    pie = plt.pie(values, autopct='%1.1f%%', startangle=90)
+    plt.legend(labels, bbox_to_anchor=(1, 0.5), loc="center right", fontsize=10,
+               bbox_transform=plt.gcf().transFigure)
+    plt.subplots_adjust(left=0.0, bottom=0.1, right=0.45)
+
+    ax1.axis('equal')
+    plt.tight_layout()
+    plt.show()
+    
 cursor = movie_items.find({})
 
 # x = []
