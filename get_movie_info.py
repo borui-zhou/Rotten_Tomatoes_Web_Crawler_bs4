@@ -148,17 +148,52 @@ def draw_pie_chart(labels, values,title):
     ax1.axis('equal')
     plt.tight_layout()
     plt.show()
-    
+
+def hottest_star(casts):
+    plt_label = [] #cast names
+    plt_values = [] #number of appearance of the cast
+
+    for key, value in Counter(casts).items():
+        # Show only actors who played in more than 40 movies
+        if value >= 40:
+            plt_label.append(key)
+            plt_values.append(int(value))
+
+    width = 1 / 1.5
+    #Todo: better visualisation.
+    plt.bar(plt_label, plt_values, width, color="blue")
+    plt.xticks(plt_label, plt_values)
+    plt.show()
+
+def most_successful_studio(studio):
+    plt_label = []
+    plt_values = []
+
+    for key, value in Counter(studio).items():
+        # Show the studio which made in more than 100 movies
+        if value >= 100:
+            plt_label.append(key)
+            plt_values.append(int(value))
+
+    width = 1 / 1.5
+    # Todo: better visualisation.
+    plt.bar(plt_label, plt_values, width, color="blue")
+    plt.xticks(plt_label, plt_values)
+    plt.show()
+
 cursor = movie_items.find({})
+
+
 
 # x = []
 # y = []
 
-# for document in cursor:
-#       print(document)
+for document in cursor:
+      print(document)
 
+casts = []
 for movie_item in cursor:
     for cast in movie_item['cast']:
-        x.append(cast)
-print(len(x))
-print(Counter(x))
+        casts.append(cast)
+# print(len(x))
+# print(Counter(x))
